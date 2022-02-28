@@ -22,20 +22,20 @@ public class Geometry {
         return value;
     }
 
-    public static boolean isequal(double a1, double a2) {
+    public static String isequal(double a1, double a2) {
         Double a1obj = a1;
         Double a2obj = a2;
         boolean result = (a1obj.equals(a2obj));
-        return result;
+        double answer = a1obj.compareTo(a2obj);
+        if (result && answer == 0) {
+            System.out.println("Line 1 and Line 2 are Equal");
+        } else if (answer < 1) {
+            System.out.println("Line 1 and Line 2 Are Unequal, Line 1 is less than Line 2");
+        } else System.out.println("Line 1 and Line 2 Are Unequal, Line 1 is greater than line 2");
+        return null;
     }
-public static double compareto(double b1, double b2){
-        Double b1obj = b1;
-        Double b2obj = b2;
-        double answer = b1obj.compareTo(b2obj);
-        return answer;
-}
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         System.out.println("Enter the value for x1 co-ordinate of Line 1(x1):");
         Scanner in1 = new Scanner(System.in);
         double x1 = in1.nextDouble();
@@ -66,10 +66,6 @@ public static double compareto(double b1, double b2){
         double v2 = l2.equationAt();
         System.out.println("Length of line 1:" + v1);
         System.out.println("Length of Line 2:" + v2);
-        boolean equalto = isequal(v1, v2);
-        System.out.println(equalto);
-        double iscompare = compareto(v1, v2);
-        System.out.println(iscompare);
+        String equalto = isequal(v1, v2);
     }
-
 }
